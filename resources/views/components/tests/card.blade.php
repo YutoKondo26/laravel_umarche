@@ -4,8 +4,8 @@
     'message' => '初期値です。',
 ])
 
-<div {{$attributes->mage([
-    'class'=>'boder-2 shadow-md w-1/4 p-2',
+<div {{$attributes->merge([
+    'class'=>'boder-2 shadow-md w-1/4 p-2'
     ]) }}>
     <div>{{ $title }}</div>
     <div>画像</div>
