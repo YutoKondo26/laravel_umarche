@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'users',
         'passwords' => 'users',
     ],
 
@@ -40,6 +40,22 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        
+        'users' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'owners' => [
+            'driver' => 'session',
+            'provider' => 'owners',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+
     ],
 
     /*
@@ -65,6 +81,16 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'owners' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Owner::class,//使用するモデルを選択
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,//使用するモデルを選択
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -88,10 +114,24 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'users',//先ほど作成したプロバイダー名
             'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+            'expire' => 60,//日間の期限
+            'throttle' => 60,//間違えた時に60秒間使用できなくなる
+        ],
+
+        'owners' => [
+            'provider' => 'owners',//先ほど作成したプロバイダー名
+            'table' => 'owner_password_resets',//パスワードリセットのマイグレーション(テーブル名に変更)
+            'expire' => 60,//日間の期限
+            'throttle' => 60,//間違えた時に60秒間使用できなくなる
+        ],
+
+        'admin' => [
+            'provider' => 'admin',//先ほど作成したプロバイダー名
+            'table' => 'admin_password_resets',//パスワードリセットのマイグレーション(テーブル名に変更)
+            'expire' => 60,//日間の期限
+            'throttle' => 60,//間違えた時に60秒間使用できなくなる
         ],
     ],
 
