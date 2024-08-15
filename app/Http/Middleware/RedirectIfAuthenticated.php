@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     private const GUARD_USER = 'users';//config/auth.phpのguardsで設定したいた名前
-    private const GUARD_OWNER = 'owner';
+    private const GUARD_OWNER = 'owners';
     private const GUARD_ADMIN = 'admin';
     
     /**
