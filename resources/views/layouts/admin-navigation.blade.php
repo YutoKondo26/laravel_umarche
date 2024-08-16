@@ -5,15 +5,20 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
+                    <div class="w-12">
                     <a href="{{ route('admin.dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('adnin.dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.inde')">
+                        {{ __('オーナー管理') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -38,7 +43,7 @@
                         <form method="POST" action="{{ route('admin.logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('adminlogout')"
+                            <x-dropdown-link :href="route('admin.logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
