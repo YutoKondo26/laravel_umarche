@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 
 
 
+
 class OwnersController extends Controller
 {
     /**

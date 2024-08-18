@@ -22,7 +22,7 @@
             @if(auth('admin')->user())
                 @include('layouts.admin-navigation')
             @elseif(auth('owners')->user())
-                @include('layouts.owners-navigation')
+                @include('layouts.owner-navigation')
             @elseif(auth('users')->user())
                 @include('layouts.user-navigation')
             @endif
